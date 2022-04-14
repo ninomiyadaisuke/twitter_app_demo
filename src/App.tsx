@@ -9,14 +9,14 @@ import styles from "./App.module.css";
 const App: React.FC = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     const unSub = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         dispatch(
           login({
             uid: authUser.uid,
-            phptoUrl: authUser.photoURL,
+            photoUrl: authUser.photoURL,
             displayName: authUser.displayName,
           })
         );
